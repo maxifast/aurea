@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUREA | AI Concierge</title>
+    <meta name="description" content="AUREA - Hospitality without the Hustle. AI-консьерж для вашей виллы.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="main-content-wrapper">
+        <!-- Navigation (Simple & Elegant) -->
+        <nav class="main-nav">
+            <div class="logo">
+                <img src="images/logo.png" alt="AUREA Logo" class="logo-img">AUREA
+            </div>
+            <div class="nav-links">
+                <a href="#neural-architecture">Arquitectura Neuronal</a>
+                <a href="#ecosistema">El Ecosistema</a>
+                <a href="#propietarios">Para Propietarios</a>
+            </div>
+
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="video-background">
+                <!-- Placeholder for video, using a subtle gradient for now -->
+                <div class="video-overlay"></div>
+            </div>
+
+            <div class="hero-container">
+                <div class="hero-left">
+                    <h1 class="fade-in-up">Hospitalidad<br>sin<br><em>interrupciones.</em></h1>
+                    <p class="subtitle fade-in-up delay-1">Tu conserje intuitivo potenciado por<br>Inteligencia
+                        Artificial para experiencias sin<br>límites.</p>
+                    <button class="btn-reservar fade-in-up delay-2" id="hero-reserve-btn">RESERVAR SANTUARIO
+                        &rarr;</button>
+                </div>
+
+                <div class="hero-right fade-in-up delay-2">
+                    <div class="glass-phone">
+                        <div class="phone-header">
+                            <div class="phone-title">
+                                <h4>AUREA</h4>
+                                <span>CONCIERGE PERSONAL</span>
+                            </div>
+                            <div class="status-online">
+                                <span class="dot"></span> Online
+                            </div>
+                        </div>
+
+                        <div class="phone-chat" id="hero-phone-chat">
+                            <!-- Msg 1 User -->
+                            <div class="chat-msg user-msg chat-element" id="anim-m1">
+                                <p>Reserva una mesa para 4 en Nobu esta noche.</p>
+                            </div>
+                            <div class="msg-time right chat-element" id="anim-t1">18:42</div>
+
+                            <!-- Msg 2 AI -->
+                            <div class="chat-wrapper ai-wrapper">
+                                <div class="chat-msg ai-msg typing-indicator chat-element" id="anim-typ1">
+                                    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                                </div>
+                                <div class="chat-msg ai-msg chat-element" id="anim-m2">
+                                    <p>Tienen disponibilidad a las 20:30 y 21:15. ¿Cuál prefieres?</p>
+                                </div>
+                                <div class="msg-time left chat-element" id="anim-t2">Aurea AI &bull; 18:42</div>
+                            </div>
+
+                            <!-- Msg 3 User -->
+                            <div class="chat-msg user-msg chat-element" id="anim-m3">
+                                <p>A las 21:15 está perfecto.</p>
+                            </div>
+                            <div class="msg-time right chat-element" id="anim-t3">18:43</div>
+
+                            <!-- Msg 4 & 5 (API) & 6 AI -->
+                            <div class="chat-wrapper ai-wrapper">
+                                <div class="chat-msg ai-msg typing-indicator chat-element" id="anim-typ2">
+                                    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                                </div>
+                                <div class="chat-msg ai-msg chat-element" id="anim-m4">
+                                    <p>Mesa confirmada para 4 personas a las 21:15.</p>
+                                </div>
+                                <div class="api-sync-card chat-element bounce-in" id="anim-api">
+                                    <div class="api-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="#2bc985" stroke-width="2">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div class="api-info">
+                                        <strong>OpenTable API</strong>
+                                        <span>Reserva Sincronizada</span>
+                                    </div>
+                                </div>
+                                <div class="chat-msg ai-msg chat-element" id="anim-m5" style="margin-top: 0.5rem;">
+                                    <p>¿Organizo el traslado o la limpieza de noche mientras no estáis?</p>
+                                </div>
+                                <div class="msg-time left chat-element" id="anim-t4">Aurea AI &bull; 18:43</div>
+                            </div>
+
+                            <!-- Msg 7 User -->
+                            <div class="chat-msg user-msg chat-element" id="anim-m6">
+                                <p>Solo el traslado, preparad el Range Rover.</p>
+                            </div>
+                            <div class="msg-time right chat-element" id="anim-t5">18:44</div>
+
+                            <!-- Msg 8 AI -->
+                            <div class="chat-wrapper ai-wrapper">
+                                <div class="chat-msg ai-msg typing-indicator chat-element" id="anim-typ3">
+                                    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                                </div>
+                                <div class="chat-msg ai-msg chat-element" id="anim-m7">
+                                    <p>Conductor asignado. El coche estará en la puerta a las 20:55. Que disfruten la
+                                        cena.</p>
+                                </div>
+                                <div class="msg-time left chat-element" id="anim-t6">Aurea AI &bull; Ahora</div>
+                            </div>
+                        </div>
+
+                        <div class="phone-input">
+                            <div class="input-inner">
+                                <input type="text" id="demo-chat-input" placeholder="Pregunta algo a Aurea..."
+                                    autocomplete="off"
+                                    style="width: 100%; border: none; outline: none; background: transparent; color: inherit; font-family: inherit; font-size: 0.9rem;">
+                                <button class="send-btn" id="demo-chat-send">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 19V5M5 12l7-7 7 7" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Grid Layout for Sticky Phone -->
+        <div class="main-layout">
+
+            <!-- Scrolling Content -->
+            <main class="content-column">
+
+                <!-- New Villa Collection -->
+                <section id="best-for-today" class="collection-section">
+                    <div class="collection-header">
+                        <span class="collection-subtitle">LA COLECCIÓN</span>
+                        <h2 class="collection-title">Refugios Curados por IA</h2>
+                    </div>
+
+                    <div class="collection-grid">
+
+                        <!-- Card 1 -->
+                        <div class="villa-card">
+                            <div class="villa-card-img-wrapper booking-trigger group" data-villa="Villa Solstice">
+                                <img src="images/1.png" alt="Villa Solstice" class="villa-card-img thumb">
+                                <div class="floating-tag">Ibiza, España</div>
+                            </div>
+                            <div class="villa-card-content">
+                                <h3 class="villa-card-title booking-trigger" data-villa="Villa Solstice">Villa Solstice
+                                </h3>
+                                <p class="villa-card-vibe">Un refugio minimalista con vistas panorámicas al mar.
+                                    Perfecta para desconectar y recargar energías.</p>
+
+                                <div class="thumbnail-gallery-mini">
+                                    <img src="images/1-1.jpg" alt="Interior 1" class="thumb-mini thumb">
+                                    <img src="images/1-2.jpg" alt="Interior 2" class="thumb-mini thumb">
+                                    <img src="images/1-3.jpg" alt="Interior 3" class="thumb-mini thumb">
+                                    <img src="images/1-4.jpg" alt="Interior 4" class="thumb-mini thumb">
+                                    <img src="images/1-5.jpg" alt="Interior 5" class="thumb-mini thumb">
+                                    <img src="images/1-6.jpg" alt="Interior 6" class="thumb-mini thumb">
+                                </div>
+
+                                <div class="villa-card-footer">
+                                    <span class="villa-price">€950 / noche</span>
+                                    <span class="villa-action booking-trigger" data-villa="Villa Solstice">Explorar
+                                        &rarr;</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="villa-card">
+                            <div class="villa-card-img-wrapper booking-trigger group" data-villa="Casa Terra">
+                                <img src="images/2.png" alt="Casa Terra" class="villa-card-img thumb">
+                                <div class="floating-tag">Mallorca, España</div>
+                            </div>
+                            <div class="villa-card-content">
+                                <h3 class="villa-card-title booking-trigger" data-villa="Casa Terra">Casa Terra</h3>
+                                <p class="villa-card-vibe">Arquitectura orgánica integrada en la naturaleza. Piscina
+                                    infinita y jardines privados.</p>
+
+                                <div class="thumbnail-gallery-mini">
+                                    <img src="images/2-1.jpg" alt="Interior 1" class="thumb-mini thumb">
+                                    <img src="images/2-2.jpg" alt="Interior 2" class="thumb-mini thumb">
+                                    <img src="images/2-3.jpg" alt="Interior 3" class="thumb-mini thumb">
+                                    <img src="images/2-4.jpg" alt="Interior 4" class="thumb-mini thumb">
+                                    <img src="images/2-5.jpg" alt="Interior 5" class="thumb-mini thumb">
+                                    <img src="images/2-6.jpg" alt="Interior 6" class="thumb-mini thumb">
+                                </div>
+
+                                <div class="villa-card-footer">
+                                    <span class="villa-price">€1,200 / noche</span>
+                                    <span class="villa-action booking-trigger" data-villa="Casa Terra">Explorar
+                                        &rarr;</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="villa-card">
+                            <div class="villa-card-img-wrapper booking-trigger group" data-villa="The Cliffhouse">
+                                <img src="images/3.png" alt="The Cliffhouse" class="villa-card-img thumb">
+                                <div class="floating-tag">Costa Brava, España</div>
+                            </div>
+                            <div class="villa-card-content">
+                                <h3 class="villa-card-title booking-trigger" data-villa="The Cliffhouse">The Cliffhouse
+                                </h3>
+                                <p class="villa-card-vibe">Lujo moderno en el borde del acantilado. Privacidad absoluta
+                                    y servicio de chef incluido.</p>
+
+                                <div class="thumbnail-gallery-mini">
+                                    <img src="images/3-1.jpg" alt="Interior 1" class="thumb-mini thumb">
+                                    <img src="images/3-2.jpg" alt="Interior 2" class="thumb-mini thumb">
+                                    <img src="images/3-3.jpg" alt="Interior 3" class="thumb-mini thumb">
+                                    <img src="images/3-4.jpg" alt="Interior 4" class="thumb-mini thumb">
+                                    <img src="images/3-5.jpg" alt="Interior 5" class="thumb-mini thumb">
+                                    <img src="images/3-6.jpg" alt="Interior 6" class="thumb-mini thumb">
+                                </div>
+
+                                <div class="villa-card-footer">
+                                    <span class="villa-price">€2,400 / noche</span>
+                                    <span class="villa-action booking-trigger" data-villa="The Cliffhouse">Explorar
+                                        &rarr;</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Neural Architecture Section -->
+                <section id="neural-architecture" class="neural-section">
+                    <div class="neural-header">
+                        <span class="neural-subtitle">ARQUITECTURA NEURONAL</span>
+                        <h2 class="neural-title">El Verdadero Lujo es No Tener que Pedirlo</h2>
+                        <p class="neural-desc">Descubre cómo AUREA elimina la fricción antes de que ocurra. Seis
+                            problemas que la hospitalidad tradicional aceptaba como inevitables, resueltos en
+                            milisegundos.</p>
+                    </div>
+
+                    <div class="neural-grid">
+
+                        <!-- Card 1 -->
+                        <div class="neural-card">
+                            <div class="neural-icon-box">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="neural-icon lucide lucide-wrench">
+                                    <path
+                                        d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                                </svg>
+                            </div>
+                            <h3 class="neural-card-title">Mantenimiento Predictivo</h3>
+                            <p class="neural-card-text">La IA detecta anomalías en el voltaje del aire acondicionado y
+                                envía un técnico mientras estás en la playa. Resuelto antes de que sientas calor.</p>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="neural-card">
+                            <div class="neural-icon-box">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="neural-icon lucide lucide-volume-x">
+                                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                                    <line x1="23" x2="17" y1="9" y2="15" />
+                                    <line x1="17" x2="23" y1="9" y2="15" />
+                                </svg>
+                            </div>
+                            <h3 class="neural-card-title">Escudo Acústico</h3>
+                            <p class="neural-card-text">Sensores monitorean los decibelios en la terraza. Si la música
+                                supera el límite a las 2 AM, la IA baja sutilmente el volumen para evitar multas de la
+                                policía.</p>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="neural-card">
+                            <div class="neural-icon-box">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="neural-icon lucide lucide-cloud-sun">
+                                    <path d="M12 2v2" />
+                                    <path d="m4.93 4.93 1.41 1.41" />
+                                    <path d="M20 12h2" />
+                                    <path d="m19.07 4.93-1.41 1.41" />
+                                    <path d="M15.947 12.65a4 4 0 0 0-5.925-4.128" />
+                                    <path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z" />
+                                </svg>
+                            </div>
+                            <h3 class="neural-card-title">Pivote Meteorológico</h3>
+                            <p class="neural-card-text">¿Tormenta sorpresa? La IA rastrea el clima, reprograma
+                                automáticamente tu yate para el día soleado y reserva un spa premium para la tarde
+                                lluviosa.</p>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="neural-card">
+                            <div class="neural-icon-box">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="neural-icon lucide lucide-key">
+                                    <circle cx="7.5" cy="15.5" r="5.5" />
+                                    <path d="m21 2-9.6 9.6" />
+                                    <path d="m15.5 7.5 3 3L22 7l-3-3" />
+                                </svg>
+                            </div>
+                            <h3 class="neural-card-title">Coreografía de Personal</h3>
+                            <p class="neural-card-text">Genera códigos de acceso dinámicos para el personal de limpieza,
+                                abriendo solo las zonas de la villa donde tú no estás. Privacidad absoluta y servicio
+                                invisible.</p>
+                        </div>
+
+                        <!-- Card 5 -->
+                        <div class="neural-card">
+                            <div class="neural-icon-box">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="neural-icon lucide lucide-shopping-bag">
+                                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                                    <path d="M3 6h18" />
+                                    <path d="M16 10a4 4 0 0 1-8 0" />
+                                </svg>
+                            </div>
+                            <h3 class="neural-card-title">Reposición Invisible</h3>
+                            <p class="neural-card-text">Algoritmos de consumo predicen cuándo se terminará tu champagne
+                                favorito y lo piden automáticamente a proveedores locales antes de que notes su
+                                ausencia.</p>
+                        </div>
+
+                        <!-- Card 6 -->
+                        <div class="neural-card">
+                            <div class="neural-icon-box">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="neural-icon lucide lucide-credit-card">
+                                    <rect width="20" height="14" x="2" y="5" rx="2" />
+                                    <line x1="2" x2="22" y1="10" y2="10" />
+                                </svg>
+                            </div>
+                            <h3 class="neural-card-title">Split Inteligente</h3>
+                            <p class="neural-card-text">En viajes de grupo, la IA rastrea quién pidió el chef privado o
+                                el traslado. Al final, divide y procesa el pago exacto de cada tarjeta sin
+                                conversaciones incómodas.</p>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Interactive Blueprint Section -->
+                <section id="ecosistema" class="blueprint-section">
+                    <div class="blueprint-header">
+                        <span class="blueprint-subtitle">EL ECOSISTEMA</span>
+                        <h2 class="blueprint-title">Anatomía de la Inteligencia</h2>
+                        <p class="blueprint-desc">Explora cómo nuestra IA orquesta cada rincón de la villa para crear
+                            una experiencia de confort sin fricciones.</p>
+                    </div>
+
+                    <div class="blueprint-map-container">
+
+                        <!-- Floorplan Background -->
+                        <div class="bp-floorplan" style="position: absolute; inset: 0; pointer-events: none;">
+                            <svg viewBox="0 0 1600 900" style="width: 100%; height: 100%;">
+                                <!-- House Outline -->
+                                <g stroke="#d6d3d1" stroke-width="3" fill="none">
+                                    <!-- Outer walls -->
+                                    <path d="M400,200 L1200,200 L1200,700 L400,700 Z" />
+                                    <!-- Vertical walls -->
+                                    <path d="M750,200 L750,350 M750,450 L750,700" />
+                                    <path d="M950,200 L950,450" />
+                                    <!-- Horizontal walls -->
+                                    <path d="M400,450 L650,450 M750,450 L850,450 M950,450 L1200,450" />
+                                    <!-- Doors (Arcs) -->
+                                    <path d="M750,350 A100,100 0 0,1 850,450" stroke-width="2" stroke-dasharray="4 4" />
+                                    <path d="M650,450 A100,100 0 0,0 750,550" stroke-width="2" stroke-dasharray="4 4" />
+                                </g>
+
+                                <!-- Room Labels -->
+                                <g fill="#d6d3d1" font-family="sans-serif" font-size="20" font-weight="500"
+                                    opacity="0.4" letter-spacing="4">
+                                    <text x="575" y="335" text-anchor="middle">SUITE</text>
+                                    <text x="1075" y="335" text-anchor="middle">SALÓN</text>
+                                    <text x="850" y="585" text-anchor="middle">COCINA</text>
+                                    <text x="575" y="585" text-anchor="middle">OASIS</text>
+                                </g>
+
+                                <!-- Furniture & Details -->
+                                <g stroke="#d6d3d1" stroke-width="1.5" fill="none" opacity="0.6">
+                                    <!-- Suite: Bed & Nightstands -->
+                                    <rect x="400" y="275" width="120" height="100" rx="4" />
+                                    <!-- Pillows -->
+                                    <rect x="410" y="285" width="30" height="35" rx="2" />
+                                    <rect x="410" y="330" width="30" height="35" rx="2" />
+                                    <!-- Blanket fold -->
+                                    <line x1="470" y1="275" x2="470" y2="375" />
+                                    <!-- Nightstands -->
+                                    <rect x="400" y="235" width="40" height="30" />
+                                    <rect x="400" y="385" width="40" height="30" />
+                                    <!-- Rug -->
+                                    <rect x="480" y="250" width="100" height="150" stroke-dasharray="2 2" />
+
+                                    <!-- Salón: Sofa & TV -->
+                                    <!-- L-Sofa -->
+                                    <path d="M1180,220 L1050,220 L1050,280 L1120,280 L1120,380 L1180,380 Z"
+                                        stroke-linejoin="round" />
+                                    <line x1="1120" y1="220" x2="1120" y2="280" />
+                                    <line x1="1180" y1="280" x2="1120" y2="280" />
+                                    <!-- Coffee Table -->
+                                    <rect x="1060" y="300" width="40" height="60" rx="4" />
+                                    <!-- Rug -->
+                                    <rect x="1030" y="210" width="140" height="180" stroke-dasharray="2 2" />
+                                    <!-- Plant -->
+                                    <circle cx="980" cy="240" r="15" />
+                                    <!-- TV Stand -->
+                                    <rect x="955" y="280" width="15" height="120" />
+
+                                    <!-- Cocina & Comedor -->
+                                    <!-- Kitchen Cabinets (Top wall) -->
+                                    <rect x="750" y="200" width="200" height="50" />
+                                    <!-- Island -->
+                                    <rect x="800" y="320" width="100" height="50" />
+                                    <!-- Stools -->
+                                    <circle cx="820" cy="385" r="8" />
+                                    <circle cx="850" cy="385" r="8" />
+                                    <circle cx="880" cy="385" r="8" />
+                                    <!-- Dining Table -->
+                                    <rect x="980" y="520" width="160" height="80" rx="4" />
+                                    <!-- Chairs Top -->
+                                    <rect x="1000" y="505" width="30" height="15" rx="2" />
+                                    <rect x="1050" y="505" width="30" height="15" rx="2" />
+                                    <rect x="1100" y="505" width="30" height="15" rx="2" />
+                                    <!-- Chairs Bottom -->
+                                    <rect x="1000" y="600" width="30" height="15" rx="2" />
+                                    <rect x="1050" y="600" width="30" height="15" rx="2" />
+                                    <rect x="1100" y="600" width="30" height="15" rx="2" />
+
+                                    <!-- Oasis: Pool & Deck -->
+                                    <rect x="440" y="500" width="180" height="160" rx="8" stroke="#a8a29e" />
+                                    <path d="M460,520 Q500,540 540,520 T600,520" stroke="#a8a29e" stroke-dasharray="4 8"
+                                        opacity="0.5" />
+                                    <path d="M460,550 Q500,570 540,550 T600,550" stroke="#a8a29e" stroke-dasharray="4 8"
+                                        opacity="0.5" />
+                                    <!-- Loungers -->
+                                    <rect x="650" y="520" width="60" height="30" rx="2" />
+                                    <line x1="690" y1="520" x2="690" y2="550" />
+                                    <rect x="650" y="570" width="60" height="30" rx="2" />
+                                    <line x1="690" y1="570" x2="690" y2="600" />
+                                    <!-- Parasol -->
+                                    <circle cx="710" cy="560" r="25" stroke-dasharray="4 4" />
+                                    <circle cx="710" cy="560" r="4" />
+                                    <!-- Garden/Plants -->
+                                    <circle cx="430" cy="480" r="12" />
+                                    <circle cx="450" cy="470" r="10" />
+                                    <circle cx="620" cy="480" r="15" />
+                                    <circle cx="420" cy="680" r="14" />
+                                </g>
+
+                                <!-- North Arrow Legend -->
+                                <g transform="translate(1450, 800)" fill="#a8a29e">
+                                    <line x1="0" y1="0" x2="0" y2="-40" stroke="#a8a29e" stroke-width="2" />
+                                    <path d="M-5,-30 L0,-45 L5,-30 Z" />
+                                    <text x="0" y="25" text-anchor="middle" font-size="18" font-family="sans-serif"
+                                        font-weight="600">N</text>
+                                    <text x="0" y="50" text-anchor="middle" font-size="12" font-family="sans-serif"
+                                        letter-spacing="2">SCALE 1:100</text>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <!-- 1. HOTSPOT: La Suite -->
+                        <div class="bp-hotspot h-suite">
+                            <div class="bp-dot"></div>
+                            <div class="bp-tooltip t-bottom">
+                                <div class="bp-tooltip-anim">
+                                    <svg viewBox="0 0 100 100" class="bp-svg">
+                                        <style>
+                                            @keyframes svg-rise {
+                                                0% {
+                                                    transform: translateY(20px);
+                                                    fill: #e7e5e4;
+                                                }
+
+                                                50% {
+                                                    transform: translateY(-10px);
+                                                    fill: #c2410c;
+                                                }
+
+                                                100% {
+                                                    transform: translateY(20px);
+                                                    fill: #e7e5e4;
+                                                }
+                                            }
+                                        </style>
+                                        <rect width="100" height="100" fill="transparent" />
+                                        <line x1="10" y1="70" x2="90" y2="70" stroke="#d6d3d1" stroke-width="2" />
+                                        <circle cx="50" cy="70" r="16"
+                                            style="animation: svg-rise 5s ease-in-out infinite;" />
+                                    </svg>
+                                </div>
+                                <div class="bp-tooltip-text">
+                                    <h4 class="bp-tt-title">Sincronización Circadiana</h4>
+                                    <p class="bp-tt-body">Temperatura y luz natural adaptadas a tus ciclos de sueño. El
+                                        café se prepara al detectar tu primer movimiento.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. HOTSPOT: El Oasis -->
+                        <div class="bp-hotspot h-oasis">
+                            <div class="bp-dot"></div>
+                            <div class="bp-tooltip t-top">
+                                <div class="bp-tooltip-anim">
+                                    <svg viewBox="0 0 100 100" class="bp-svg">
+                                        <style>
+                                            @keyframes svg-ripple {
+                                                0% {
+                                                    transform: scale(0.1);
+                                                    opacity: 1;
+                                                }
+
+                                                100% {
+                                                    transform: scale(3.5);
+                                                    opacity: 0;
+                                                }
+                                            }
+                                        </style>
+                                        <rect width="100" height="100" fill="transparent" />
+                                        <circle cx="50" cy="50" r="10" fill="none" stroke="#7c2d12" stroke-width="2"
+                                            style="transform-origin: center; animation: svg-ripple 3s linear infinite;" />
+                                        <circle cx="50" cy="50" r="10" fill="none" stroke="#7c2d12" stroke-width="2"
+                                            style="transform-origin: center; animation: svg-ripple 3s linear infinite; animation-delay: 1s;" />
+                                        <circle cx="50" cy="50" r="10" fill="none" stroke="#7c2d12" stroke-width="2"
+                                            style="transform-origin: center; animation: svg-ripple 3s linear infinite; animation-delay: 2s;" />
+                                    </svg>
+                                </div>
+                                <div class="bp-tooltip-text">
+                                    <h4 class="bp-tt-title">Climatización Anticipada</h4>
+                                    <p class="bp-tt-body">La piscina se calienta anticipando tus hábitos. El escudo
+                                        acústico ajusta la música de noche para preservar el entorno.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3. HOTSPOT: El Salón -->
+                        <div class="bp-hotspot h-salon">
+                            <div class="bp-dot"></div>
+                            <div class="bp-tooltip t-bottom">
+                                <div class="bp-tooltip-anim">
+                                    <svg viewBox="0 0 100 100" class="bp-svg">
+                                        <style>
+                                            @keyframes svg-morph1 {
+                                                0% {
+                                                    transform: translate(0, 0);
+                                                    fill: #e7e5e4;
+                                                }
+
+                                                50% {
+                                                    transform: translate(15px, -15px);
+                                                    fill: #c2410c;
+                                                }
+
+                                                100% {
+                                                    transform: translate(0, 0);
+                                                    fill: #e7e5e4;
+                                                }
+                                            }
+
+                                            @keyframes svg-morph2 {
+                                                0% {
+                                                    transform: translate(0, 0);
+                                                    fill: #c2410c;
+                                                }
+
+                                                50% {
+                                                    transform: translate(-15px, 15px);
+                                                    fill: #e7e5e4;
+                                                }
+
+                                                100% {
+                                                    transform: translate(0, 0);
+                                                    fill: #c2410c;
+                                                }
+                                            }
+                                        </style>
+                                        <defs>
+                                            <filter id="bp-blur">
+                                                <feGaussianBlur stdDeviation="6" />
+                                            </filter>
+                                        </defs>
+                                        <rect width="100" height="100" fill="transparent" />
+                                        <circle cx="35" cy="50" r="22" filter="url(#bp-blur)"
+                                            style="animation: svg-morph1 6s ease-in-out infinite; mix-blend-mode: multiply;" />
+                                        <circle cx="65" cy="50" r="22" filter="url(#bp-blur)"
+                                            style="animation: svg-morph2 6s ease-in-out infinite; mix-blend-mode: multiply;" />
+                                    </svg>
+                                </div>
+                                <div class="bp-tooltip-text">
+                                    <h4 class="bp-tt-title">Escenarios Invisibles</h4>
+                                    <p class="bp-tt-body">La música te sigue suavemente. La iluminación cambia de
+                                        'Atardecer Ibicenco' a 'Cine Privado' con una sola orden.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4. HOTSPOT: La Cocina -->
+                        <div class="bp-hotspot h-cocina">
+                            <div class="bp-dot"></div>
+                            <div class="bp-tooltip t-top">
+                                <div class="bp-tooltip-anim">
+                                    <svg viewBox="0 0 100 100" class="bp-svg">
+                                        <style>
+                                            @keyframes svg-dotTravel {
+                                                0% {
+                                                    cx: 20;
+                                                    cy: 70;
+                                                }
+
+                                                33% {
+                                                    cx: 50;
+                                                    cy: 30;
+                                                }
+
+                                                66% {
+                                                    cx: 80;
+                                                    cy: 60;
+                                                }
+
+                                                100% {
+                                                    cx: 20;
+                                                    cy: 70;
+                                                }
+                                            }
+                                        </style>
+                                        <rect width="100" height="100" fill="transparent" />
+                                        <path d="M20 70 L50 30 L80 60 Z" fill="none" class="bp-path-flow"
+                                            stroke="#d6d3d1" stroke-width="1.5" stroke-dasharray="4,4" />
+                                        <circle cx="20" cy="70" r="4" fill="#c2410c" />
+                                        <circle cx="50" cy="30" r="4" fill="#c2410c" />
+                                        <circle cx="80" cy="60" r="4" fill="#c2410c" />
+                                        <circle r="6" fill="#ea580c"
+                                            style="animation: svg-dotTravel 4s ease-in-out infinite;"
+                                            filter="drop-shadow(0 0 6px #ea580c)" />
+                                    </svg>
+                                </div>
+                                <div class="bp-tooltip-text">
+                                    <h4 class="bp-tt-title">Abastecimiento Autónomo</h4>
+                                    <p class="bp-tt-body">Rastrea el inventario y pide productos frescos antes de que
+                                        falten. Da acceso temporal al Chef Privado sin molestarte.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+
+                <!-- FOR OWNERS Section -->
+                <section id="propietarios" class="owners-section">
+                    <div class="owners-header">
+                        <span class="owners-subtitle">PARA PROPIETARIOS</span>
+                        <h2 class="owners-title">Inversión en Tranquilidad</h2>
+                        <p class="owners-desc">Nuestra IA se encarga de las llamadas nocturnas, la logística y los
+                            caprichos de los huéspedes. Tú solo disfrutas del rendimiento.</p>
+                    </div>
+
+                    <div class="owners-grid">
+                        <!-- Card 1 -->
+                        <div class="owner-card">
+                            <h3 class="oc-title">Esencia</h3>
+                            <p class="oc-subtitle">Para 1 propiedad</p>
+                            <ul class="oc-features">
+                                <li>Gestión de calendario</li>
+                                <li>Chat 24/7 multilingüe</li>
+                                <li>Check-in sin llaves</li>
+                            </ul>
+                        </div>
+
+                        <!-- Card 2 (Highlighted) -->
+                        <div class="owner-card oc-highlighted">
+                            <div class="oc-badge">RECOMENDADO</div>
+                            <h3 class="oc-title">Colección</h3>
+                            <p class="oc-subtitle">Hasta 3 propiedades</p>
+                            <ul class="oc-features">
+                                <li>Gestión de calendario</li>
+                                <li>Chat 24/7 multilingüe</li>
+                                <li>Check-in sin llaves</li>
+                                <li>Upselling de servicios</li>
+                                <li>Limpieza predictiva</li>
+                                <li>Dashboard financiero</li>
+                            </ul>
+                            <button class="oc-cta booking-trigger" data-villa="">Solicitar Acceso</button>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="owner-card">
+                            <h3 class="oc-title">Imperio</h3>
+                            <p class="oc-subtitle">Agencias y múltiples villas</p>
+                            <ul class="oc-features">
+                                <li>API personalizada</li>
+                                <li>Marca blanca</li>
+                                <li>Conserje humano de respaldo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- NEW FOOTER -->
+                <footer class="new-footer">
+                    <div class="nf-top">
+                        <div class="nf-logo">AUREA</div>
+                        <div class="nf-newsletter">
+                            <form autocomplete="off"
+                                onsubmit="event.preventDefault(); alert('Suscrito al diario visual.');">
+                                <input type="email" placeholder="Email para el diario visual" class="nf-input"
+                                    required />
+                                <button type="submit" style="display:none;"></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="nf-bottom">
+                        <div class="nf-copy">© 2026 Aurea Intelligence. Marbella & Ibiza.</div>
+                        <div class="nf-links">
+                            <a href="#">Instagram</a>
+                            <a href="#">Términos</a>
+                            <a href="#">Privacidad</a>
+                        </div>
+                    </div>
+                </footer>
+
+            </main>
+
+            <!-- Sticky AI Demo Sidebar (Hiding visually but keeping in DOM if needed) -->
+            <aside class="ai-sidebar" style="display: none;">
+                <!-- Phone mockup removed/hidden -->
+            </aside>
+
+        </div>
+    </div> <!-- End main-content-wrapper -->
+
+    <!-- AUREA Intelligent Booking Panel -->
+    <div id="booking-panel" class="booking-panel">
+        <div class="panel-header">
+            <button class="close-panel">&times;</button>
+            <div class="aurea-logo-small">AUREA</div>
+        </div>
+
+        <div class="panel-content">
+            <!-- Initial Chat Container -->
+            <div id="booking-chat-container" class="booking-chat-container">
+                <div class="ai-welcome">
+                    <div class="ai-avatar-large">A</div>
+                    <h2>Bienvenido, <span id="user-name-display">Invitado</span>.</h2>
+                    <p>He preparado el espacio. ¿Confirmamos los detalles?</p>
+                </div>
+
+                <div class="booking-messages" id="booking-messages">
+                    <!-- Questions will appear here -->
+                </div>
+
+                <div class="booking-input-area" id="booking-input-area">
+                    <!-- Dynamic inputs (buttons, dates, etc) will be injected -->
+                </div>
+
+                <div class="booking-chat-input-wrapper">
+                    <input type="text" id="booking-user-input"
+                        placeholder="¿Desea añadir algo más? (Ej: Cuna, flores...)" autocomplete="off">
+                    <button id="booking-send-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dashboard Container (Hidden initially) -->
+            <div id="booking-dashboard" class="booking-dashboard" style="display: none;">
+                <div class="dashboard-header">
+                    <h3>Itinerario de Viaje</h3>
+                    <p>Su estancia en <span id="booked-villa-name">Villa Solstice</span></p>
+                </div>
+
+                <!-- NEW: Service Summary Section -->
+                <div class="booking-summary-pills" id="booking-summary">
+                    <!-- Summary pills will be injected here -->
+                </div>
+
+                <div class="itinerary-timeline">
+                    <!-- Timeline items injected here -->
+                </div>
+
+                <!-- NEW: Confirmation Actions (Export/Share) -->
+                <div class="confirmation-actions">
+                    <button class="btn-share email" onclick="simulateExport('email')">
+                        <span>📧 Enviar por Email</span>
+                    </button>
+                    <button class="btn-share whatsapp" onclick="simulateExport('whatsapp')">
+                        <span>💬 WhatsApp</span>
+                    </button>
+                    <button class="btn-share messenger" onclick="simulateExport('messenger')">
+                        <span>🔹 Messenger</span>
+                    </button>
+                </div>
+
+                <div class="weather-reactive-bg"></div>
+
+                <button class="btn-magic" id="btn-change-magic">Modificar magia</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Structure -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
