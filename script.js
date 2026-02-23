@@ -306,17 +306,57 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatInput = document.getElementById('demo-chat-input');
     const chatSendBtn = document.getElementById('demo-chat-send');
 
-    // 1. CLEAR ANIMATION MESSAGES initially
+    // 1. RUN HERO CHAT ANIMATION
+    const runHeroAnimation = async () => {
+        const animElements = [
+            { id: 'anim-m1', delay: 1000 },
+            { id: 'anim-t1', delay: 200 },
+            { id: 'anim-typ1', delay: 600, isTyping: true },
+            { id: 'anim-m2', delay: 1200 },
+            { id: 'anim-t2', delay: 200 },
+            { id: 'anim-m3', delay: 1500 },
+            { id: 'anim-t3', delay: 200 },
+            { id: 'anim-typ2', delay: 800, isTyping: true },
+            { id: 'anim-m4', delay: 1200 },
+            { id: 'anim-api', delay: 500 },
+            { id: 'anim-m5', delay: 1000 },
+            { id: 'anim-t4', delay: 200 },
+            { id: 'anim-m6', delay: 2000 },
+            { id: 'anim-t5', delay: 200 },
+            { id: 'anim-typ3', delay: 800, isTyping: true },
+            { id: 'anim-m7', delay: 1200 },
+            { id: 'anim-t6', delay: 200 }
+        ];
+
+        let activeTypingId = null;
+        for (let step of animElements) {
+            const el = document.getElementById(step.id);
+            if (!el) continue;
+
+            await new Promise(r => setTimeout(r, step.delay));
+
+            if (activeTypingId) {
+                const typingEl = document.getElementById(activeTypingId);
+                if (typingEl) typingEl.style.display = 'none';
+                activeTypingId = null;
+            }
+
+            if (step.isTyping) {
+                activeTypingId = step.id;
+            }
+
+            el.classList.add('visible');
+            if (el.classList.contains('msg-time')) {
+                el.style.display = 'block';
+            } else {
+                el.style.display = (step.isTyping) ? 'inline-flex' : 'flex';
+            }
+            scrollToBottom();
+        }
+    };
+
     if (chatContainer) {
-        chatContainer.innerHTML = `
-            <div class="msg-time right chat-element visible" style="display:block; text-align:center; font-size:0.75rem; color:#a8a29e; margin-bottom:1rem;">Hoy</div>
-            <div class="chat-wrapper ai-wrapper">
-                <div class="chat-msg ai-msg chat-element visible" style="display:flex;">
-                    <p>Bienvenido. Soy Aurea, su conserje personal. ¿En qué le puedo asistir hoy?</p>
-                </div>
-                <div class="msg-time left chat-element visible" style="display:block;">Aurea AI &bull; Ahora</div>
-            </div>
-        `;
+        runHeroAnimation();
     }
 
     // STATE MANAGEMENT: Optimistic UI updates
@@ -503,4 +543,22 @@ Contexto inyectado: Huésped ${MOCK_DB_CONTEXT.guestName}, Villa ${MOCK_DB_CONTE
         });
     }
 
+    // --- MOBILE HAMBURGER MENU ---
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const navItems = document.querySelectorAll('.nav-item');
+
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('nav-active');
+            hamburger.classList.toggle('toggle');
+        });
+
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('nav-active');
+                hamburger.classList.remove('toggle');
+            });
+        });
+    }
 });
