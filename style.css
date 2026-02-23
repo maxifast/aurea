@@ -2390,9 +2390,10 @@ a {
 
     /* Navigation Fixes */
     .main-nav {
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         padding: 1.5rem 5%;
-        gap: 1rem;
     }
 
     .nav-links {
@@ -2448,8 +2449,7 @@ a {
     .glass-phone {
         width: 100%;
         max-width: 350px;
-        height: auto;
-        min-height: 480px;
+        height: 520px;
         margin: 0 auto;
     }
 }
@@ -2459,7 +2459,7 @@ a {
     display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .desktop-text {
         display: none;
     }
@@ -2549,7 +2549,7 @@ a {
     }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 901px) {
     .hamburger {
         display: none;
     }
